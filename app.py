@@ -150,7 +150,7 @@ st.sidebar.title("Filtreler")
 default_csv = "NetflixOriginals.csv"
 use_default_initial = os.path.exists(default_csv)
 use_default = st.sidebar.checkbox(f"`{default_csv}` kullan", value=use_default_initial)
-uploaded_file = st.sidebar.file_uploader("Veya 📄 CSV Yükle", type=["csv"])
+uploaded_file = st.sidebar.file_uploader("Veya  CSV Yükle", type=["csv"])
 
 df = pd.DataFrame()
 if use_default and not uploaded_file:
@@ -171,7 +171,7 @@ if "PremiereYear" in dff.columns and dff["PremiereYear"].notna().any():
     max_year = int(dff["PremiereYear"].max())
     
     selected_years = st.sidebar.slider(
-        "📅 Yıl Aralığı (Premiere)",
+        " Yıl Aralığı (Premiere)",
         min_year, max_year,
         (min_year, max_year)
     )
@@ -186,7 +186,7 @@ if "Table" in dff.columns:
     tables = dff["Table"].dropna().unique()
     if len(tables) > 1:
         selected_tables = st.sidebar.multiselect(
-            "📦 Kategori (Table)",
+            " Kategori (Table)",
             options=tables,
             default=tables
         )
@@ -213,7 +213,7 @@ if "GenresList" in dff.columns:
     
     if not ex.empty:
         top_n_genres = st.sidebar.slider(
-            "🏷️ Top N Tür Sayısı",
+            " Top N Tür Sayısı",
             min_value=3, max_value=20, value=10, step=1
         )
 else:
@@ -317,5 +317,5 @@ st.sidebar.download_button(
     mime="text/plain"
 )
 
-st.subheader("🔎 Filtrelenmiş Veri Önizlemesi (İlk 50)")
+st.subheader(" Filtrelenmiş Veri Önizlemesi (İlk 50)")
 st.dataframe(dff.head(50))
