@@ -198,7 +198,7 @@ if "Language" in dff.columns:
         top_langs = dff["Language"].value_counts().head(20).index.tolist()
         
         selected_langs = st.sidebar.multiselect(
-            "🌐 Dil (Popüler 20)",
+            " Dil (Popüler 20)",
             options=top_langs,
             default=top_langs
         )
@@ -224,11 +224,11 @@ if dff.empty:
     st.stop()
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "📈 Yıla Göre Adet", 
-    "🏷️ Popüler Türler", 
-    "📊 Durum (Status)", 
-    "📦 Bölüm Uzunluğu", 
-    "🧮 Sezon vs Bölüm"
+    " Yıla Göre Adet", 
+    " Popüler Türler", 
+    " Durum ", 
+    " Bölüm Uzunluğu", 
+    " Sezon vs Bölüm"
 ])
 
 with tab1:
@@ -311,7 +311,7 @@ with tab5:
 report_text = short_report(by_year, topg.sort_values(ascending=False) if not ex.empty else pd.Series([],dtype=int), dff)
 
 st.sidebar.download_button(
-    label="📝 Kısa Raporu İndir (.txt)",
+    label=" Kısa Raporu İndir (.txt)",
     data=report_text,
     file_name="netflix_ozet_rapor.txt",
     mime="text/plain"
